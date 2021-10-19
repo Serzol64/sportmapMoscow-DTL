@@ -3,7 +3,7 @@
 import pandas as pd
 import json
 import torch
-from geojson import Feature, FeatureCollection, Point
+import geojson
 from flask import Flask, jsonify
 
 def datasetConnect(sheet):
@@ -22,11 +22,13 @@ def welcome():
 
 	features = objectList.apply( lambda row: Feature(geometry=Point((float(row['Долгота (Longitude)']), float(row['Широта (Latitude)'])))), axis=1).tolist()
 
-	properties = objectList.drop(['Широта (Latitude)', 'Долгота (Longitude)'], axis=1).to_dict('objects')
+	properties = objectList.drop(['Широта (Latitude)', 'Долгота (Longitude)'], axis=1).to_dict()
 
 	feature_collection = FeatureCollection(features=features, properties=properties)
 
 	return jsonify(feature_collection)
+
+
 
 
 

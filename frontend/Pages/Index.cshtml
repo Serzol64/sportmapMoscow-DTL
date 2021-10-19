@@ -15,6 +15,12 @@ var map = new mapboxgl.Map({
 map.once("load", () => {
 	//Здесь выполняются необходимые действия с картой
 
+	map.addSource('objects',{
+		type: 'geojson',
+		data: 'http://127.0.0.1:5000/'
+	});
+
+
 
 });
 </script>
