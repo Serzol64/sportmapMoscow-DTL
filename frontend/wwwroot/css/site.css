@@ -1,5 +1,9 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
+for #faq on configuring this project to bundle and minify static web assets. */
+@font-face {
+	font-family: 'Direct Mos';
+	src: url('https://www.artlebedev.ru/type/direct-mos/ALS-Direct-mos-Regular.otf');
+}
 
 a.navbar-brand {
   white-space: normal;
@@ -28,6 +32,7 @@ a {
 -------------------------------------------------- */
 html {
   font-size: 14px;
+  font-family: 'Direct Mos', sans-serif;
 }
 @media (min-width: 768px) {
   html {
@@ -58,6 +63,8 @@ html {
   min-height: 100%;
 }
 
+
+
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
@@ -68,4 +75,93 @@ body {
   width: 100%;
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
+}
+
+h3,h4{
+	color: red;
+	font-size: 100%;
+}
+h1{
+	color: red;
+	font-size: 200%;
+}
+
+#sportDashboard{
+	padding-top: 2%;
+	padding-bottom: 2%;
+}
+#sportDashboard > div{
+	padding: 4%;
+	margin-top: 1%;
+}
+#sportDashboard > div ul, #sportDashboard > div ol{
+	margin-left: -5%;
+	margin-top: 3%;
+}
+#sportDashboard > div ol li{
+	margin-top: 1%;
+	color: gray;
+	font-size: 120%;
+}
+#sportDashboard > div ol li:nth-last-child(2){
+	font-size: 140%;
+}
+#sportDashboard > div ol li:nth-last-child(3){
+	color: #b1560f;
+	font-size: 160%;
+}
+#sportDashboard > div ol li:nth-last-child(4){
+	color: #c0c0c0;
+	font-size: 180%;
+}
+#sportDashboard > div ol li:nth-last-child(5){
+	color: gold;
+	font-size: 200%;
+}
+#sportDashboard > div:nth-child(1) ul{
+	list-style-type: none;
+}
+#sportDashboard > div:nth-child(1) ul li{
+	display: inline-table;
+	margin-left: 9%;
+	width: 20%;
+}
+#sportDashboard > div:nth-child(1) ul li *{
+	display: block;
+	margin-top: 2%;
+	color: #0058ff;
+	font-size: 100%;
+}
+
+#sportDashboard > div:nth-child(1) ul li header{
+	font-size: 400%;
+}
+
+.arc path {
+    stroke: #fff;
+}
+
+#faq {
+    border: 1px solid red;
+    border-radius: 4px;
+    padding: .5em .5em 0;
+    font-size: 100%;
+    margin-top: 2%;
+}
+
+summary {
+    font-weight: bold;
+    margin: -.5em -.5em 0;
+    padding: .5em;
+    font-size: 130%;
+}
+
+#faq[open] {
+    padding: .5em;
+}
+
+#faq[open] summary {
+    border-bottom: 1px solid red;
+    margin-bottom: .5em;
+    color: red;
 }
