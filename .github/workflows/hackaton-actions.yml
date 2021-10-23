@@ -15,9 +15,9 @@ jobs:
       - name: Copying service files and data to server
         uses: appleboy/scp-action@master
         with:
-          host: ${{ secrets.YANDEXCLOUD_IP }}
+          host: "84.201.188.252"
           username: "wccadmin"
-          key: ${{ secrets.YANDEXCLOUD_SSH }}
+          key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDS/YM029wK4ZMY+5O4Vun282wA5X6LvY7TgSTxe66hQNghUPu4bxNe8fc+TxOe1q8Rx77PCNfpf2K92e/a7SfIiqR408wonho/xqruGyu0F0m1M8hx4mPqbzgCZQzNGWo+o8nvzGP15IhXaUlhAMMTk4vb8gRTs8qXRIydADslroVod5FVWqBvZhIxqVyht0LJ23A334n5dC8T6jxOpRwgNEhTSOTE8u5JxZayROmbFqIVu2MHsmnKrXalCiOhSyJ6kOl5vOhEXplq91SHLMIGIEoA0CyoPWs25DC5fjEVcYWnskWyNaXtlcwBXCXVhEPF5h1Gl1XgyBqeOELoHUFf head@head"
           rm: true
           source: "service/"
           target: "/home/wccadmin/"
