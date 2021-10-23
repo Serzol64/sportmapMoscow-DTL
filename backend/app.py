@@ -35,7 +35,6 @@ def welcome():
 
 	features = objectList.apply( lambda row: Feature(geometry=Point((float(row['Долгота (Longitude)']), float(row['Широта (Latitude)'])))), axis=1).tolist()
 	properties = objectList.drop(['Широта (Latitude)', 'Долгота (Longitude)'], axis=1).to_dict()
-	properties = objectList.drop(['Широта (Latitude)', 'Долгота (Longitude)'], axis=1).to_dict()
 
 	feature_collection = FeatureCollection(features=features, properties=properties)
 
