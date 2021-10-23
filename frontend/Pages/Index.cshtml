@@ -1,0 +1,35 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Спортивная Москва";
+}
+
+<div id='map' style='width: 100%; height: 90vh;'></div>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1Ijoic2VyZWdhem9sb3RhcnlvdzY0IiwiYSI6ImNrdGNuam91cTBlOWMyb3RkMGdleWt0ZW8ifQ.Z9JHSStCgSwJhaaRoLjD9w';
+var map = new mapboxgl.Map({
+			container: 'map',
+			style: 'mapbox://styles/seregazolotaryow64/ckuquotcxfye118qjy4c5ja9b'
+});
+
+map.once("load", () => {
+	//Здесь выполняются необходимые действия с картой
+
+<<<<<<< HEAD
+	map.addSource('objects',{
+		type: 'geojson',
+		data: 'http://service.dtl-wcc2021.tk/'
+	});
+
+
+	map.addLayer({
+		'id': 'example',
+        'type': 'marker',
+        'source': "objects",
+        'layout': {}
+	});
+=======
+
+>>>>>>> Service Start
+});
+</script>

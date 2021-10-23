@@ -1,0 +1,51 @@
+@page
+@model AnalyticModel
+@{
+    ViewData["Title"] = "Аналитика";
+}
+<h1>@ViewData["Title"]</h1>
+<div class="container">
+	<div class="row" id="sportDashboard">
+		 <div class="col-xxl shadow p-3 mb-5 bg-white rounded">
+			<h3>Актуальные общие цифры</h3>
+			<ul class="fs-2">
+				<li>
+					<header style="color: red;">70%</header>
+					<footer>объектов</footer>
+				</li>
+				<li>
+					<header style="color: green;">5%</header>
+					<footer>объектов в среднем по 1-му району</footer>
+				</li>
+				<li>
+					<header>3</header>
+					<footer>миллиона жителей Москвы в среднем пользуется услугами в одном из имеющихся объектов</footer>
+				</li>
+			</ul>
+		 </div>
+		 <div class="col shadow p-3 mb-5 bg-white rounded">
+			<h3>Топ-5 видов спорта с учётом количества объектов</h3>
+			<ol class="fs-4">
+				<li>Футбол</li>
+				<li>Баскетбол</li>
+				<li>Плавание</li>
+				<li>Теннис</li>
+				<li>Хоккей</li>
+			</ol>
+		 </div>
+		 <div class="col shadow p-3 mb-5 bg-white rounded">
+			<h3>Возрастные критерии спортивного населения Москвы</h3>
+			<section id="gystodata-age"></section>
+		 </div>
+		 <div class="col shadow p-3 mb-5 bg-white rounded">
+			<h3>Топ-5 районов Москвы с наибольшим количеством объектов</h3>
+			<ol class="fs-4">
+				<li>Черёмушки</li>
+				<li>Крылатское</li>
+				<li>Тушино</li>
+				<li>Измайлово</li>
+				<li>Останкино</li>
+			</ol>
+		 </div>
+	</div>
+</div>
