@@ -27,4 +27,4 @@ def welcome():
 
 
 if __name__ == "__main__":
-    serve(app, host="service.dtl-wcc2021.tk", port=5001)
+    serve(app, host="0.0.0.0", port=5001)
