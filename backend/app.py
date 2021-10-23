@@ -29,6 +29,8 @@ def welcome():
 	return jsonify(feature_collection)
 
 
+if __name__ == '__main__':
+    app.run(host='service.dtl-wcc2021.tk',port=5001)
 
 
 
