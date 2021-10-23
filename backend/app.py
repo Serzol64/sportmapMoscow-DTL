@@ -27,4 +27,4 @@ def welcome():
 
 
 if __name__ == "__main__":
-    serve(app, host="0.0.0.0", port=5001)
+    serve(app, host="84.201.188.252", port=5001)
