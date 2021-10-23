@@ -24,4 +24,5 @@ def welcome():
 	feature_collection = FeatureCollection(features=features, properties=properties)
 	return jsonify(feature_collection)
 
-
+if __name__ == "__main__":
+    app.run()
