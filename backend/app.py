@@ -5,7 +5,6 @@ import json
 import torch
 import geojson
 from flask import Flask, jsonify
-from waitress import serve
 
 def datasetConnect(sheet):
 	if sheet == 'objects': return pd.read_excel('data/db.xlsx', sheet_name='Объекты отдельно')
@@ -26,5 +25,3 @@ def welcome():
 	return jsonify(feature_collection)
 
 
-if __name__ == "__main__":
-    serve(app, host="84.201.188.252", port=5001)
