@@ -39,7 +39,7 @@ def welcome():
             geojson.Feature(geometry=geojson.Point((X["Долгота (Longitude)"],
                                                     X["Широта (Latitude)"])),
                             properties=dict(objid=X["Ведомственная Организация"],
-                                            address=X["Адрес"])))
+                                            address=X["Адрес"]))))
     objectsDB.apply(insert_features, axis=1)
     with open('data/objects-', currentSession ,'.geojson', 'w+', encoding='utf8') as fp:
         geojson.dump(geojson.FeatureCollection(features), fp, sort_keys=True, ensure_ascii=False)
