@@ -4,7 +4,7 @@ import pandas as pd
 import json
 import torch
 import geojson
-from geojson import Feature, FeatureCollection, Point
+import uuid
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -31,11 +31,18 @@ app.add_middleware(
 def welcome():
 	#Основной сервис для карты
 
-	objectList = datasetConnect('objects')
+	objectsDB = datasetConnect('objects')
+	currentSession = str(uuid.uuid4())
 
-	features = objectList.apply( lambda row: Feature(geometry=Point((float(row['Долгота (Longitude)']), float(row['Широта (Latitude)'])))), axis=1).tolist('')
-	properties = objectList.drop(['Широта (Latitude)', 'Долгота (Longitude)'], axis=1).to_dict('')
+	features = []
+    insert_features = lambda X: features.append(
+            geojson.Feature(geometry=geojson.Point((X["Долгота (Longitude)"],
+                                                    X["Широта (Latitude)"])),
+                            properties=dict(objid=X["Ведомственная Организация"],
+                                            address=X["Адрес"])))
+    objectsDB.apply(insert_features, axis=1)
+    with open('data/objects-', currentSession ,'.geojson', 'w+', encoding='utf8') as fp:
+        geojson.dump(geojson.FeatureCollection(features), fp, sort_keys=True, ensure_ascii=False)
 
-	feature_collection = FeatureCollection(features=features, properties=properties)
-
-	return feature_collection
+    with open('data/objects-', currentSession ,'.geojson') as f:
+		return f.read()
