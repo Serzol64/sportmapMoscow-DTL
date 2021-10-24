@@ -21,14 +21,54 @@ map.once("load", () => {
 	});
 
 
-
-	map.addLayer({
-		'id': 'example',
-        'type': 'marker',
-        'source': "objects",
-        'layout': {}
+	map.loadImage('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAwCAYAAACFUvPfAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABARJREFUeNrMmVtIFFEYx2fWTcm1CDQf3XYrEVOkoKSLL10sX+uh6EEhgy72lEVBEfgQ2PWlCxGF0YXoQhFZS0UqC2EEmZJIWe62FXShrLxlq870//BI67I7c87Zmd0++HnYme+c8+ebb74556jquq4kZKpbxd8FYDlrPWAmSAdh8BW8Ay/AY9AG/k2qh8SnlBWtq+4ZaKrARrCItxt4Bq6Ci+CHmizREFyJ5gCYncAz6gF1EH3JVtGaw52N5iTYoFhn18A2hxb6YbnoUYfbjeYOKFGsN8rztU4tFLJM9IjDncteoiLFPusEK6dooS8Jiw6nuaeg8YEViv1GgalIHwuNGDk5OV73WkHBXaAD9INpLJ0KOfvSPDRfvXSkf6e581m+uTgmfMgme8Lq84RRvV4K9oJyjnEGqd5PHQt1x3NwGJc2tQa4gGLCIbAGNINw1L0wu14BjnKMRfPtkIr0gHMWlbdXIMckMmfBFoH0OQeqTXy+gYKs0XffhSKtq0o5yAGKAQGw28Qnmp2sn5EPzbtKOD00lB9tvDXiAujj8IuE/Bs4/MqFq4emKgUc64gWydLmZ/1VA5+5wqIxYh7HWx5IYN1B/bMMfHLEI21e5ugpjkmK1iYtT2Nbhkx6aCaDUpRmgc8SovM4ar8uEWm1F022waAO9tF4KiG6zOwbwdJHsHqoShAoJlSBDA6/SNJBJYffJxnRHRwDF4P9gqIPsH5mfu0ydbqRs+7uA9s5fXcwfx7f+zKRfgo6OSKiglPgMiiM4zOP3T/B+TRo3lapVV4g01PDtle8NsRWecQvQJvfxWAZyBQYp8Y7FDwtJfqty5POvl6lSvKMdutlcwaDYemdS7fLQ2cZrWxdbLeR0CX5g8HnikmtNTQM0Kap6i6gJIFdZoKFduNdWd6baNbZGOXrhQOB9TyOTt4R8TZvosCDYpvyuJrXWeiw5uU0bxFbjmZbKJi+fMuK+wMBW0STdUz3VqC5C9IsEDwMVpf0BfwinRyis2ACH75W+wV3K3G/kKKCpUSTze8L1CPHbwiuOaI5Ds7LzO+Ufa5Yum5lL2WBRPcHYI/s3A7Zjgt/9fQiUltAWDDCH8BmMKqpSRZNVvqzx4+8PCKQw6OgCnycuJZ00ex8pB685jzzOAqaI6+lRDSiNQBqOaLcDuqir6dG9Hie3gM+gzzWQS0Yjr6XmvT4x2Gg65OvTXAFNMW6l8pIEy3AHyPKFN2D8Z5CqiNNnIkRzQbwKs4TkDJn4i+iGn2wTv/szGW//4BjVi8JrSh5kfQCX8TvRtBjVAb/h/QgbpukS+rTI8bEdEw2wk5Gm+3Y4jitSI8oo5x+D24lcKqa9EjTpUegya7NpB2iyRrAG7tE/xVgAD4T3XTBhSwIAAAAAElFTkSuQmCC', (error, image) => {
+	  if (error) throw error;
+	  map.addImage('sport-point', image, { sdf: true });
 	});
 
+	map.addLayer({
+		'id': 'sport-object',
+		'source': 'objects',
+		'type': 'symbol',
+		'layout': {
+			'icon-image': 'sport-point',
+			'icon-size': 1
+		}
+	});
+
+
+	map.on('click', 'sport-object', (event) => {
+	  let query = event.features[0].properties.id,
+		  object = "",
+		  address = "",
+		  region = "",
+		  z = "",
+		  zType = "",
+		  sport = "",
+		  director = "";
+
+	  $.ajax({
+		  type: "POST",
+		  url: "http://127.0.0.1:8001/objectInfo",
+		  mode: 'cors',
+		  data: {objectId: query},
+		  success: function(response){
+			let res = JSON.parse(response);
+
+			object = res.object;
+			address = res.location;
+			region = res.region;
+			z = res.sportzone;
+			zType = res.sportzoneType;
+			sport = res.sportType;
+			director = res.director;
+		  }
+	  });
+	  new mapboxgl.Popup()
+		.setLngLat(event.features[0].geometry.coordinates)
+		.setHTML(`<div class="current-coordinate"> <header> <div><strong>Название объекта:</strong><span>${object}</span></div> <div><strong>Местоположение:</strong><span>${address}</span></div> </header> <main> <div><strong>Значение</strong><span>${region}</span></div> <div><strong>Спортзона</strong><span>${z}</span></div> <div><strong>Тип спортзоны</strong><span>${zType}</span></div> </main> <footer> <div><strong>Вид спорта</strong><span>${sport}</span></div> <div><strong>Владелец</strong><span>${director}</span></div> </footer></div>`)
+		.addTo(map);
+	});
 
 });
 </script>

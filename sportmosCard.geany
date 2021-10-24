@@ -27,13 +27,13 @@ long_line_behaviour=1
 long_line_column=72
 
 [files]
-current_page=1
-FILE_NAME_0=0;JSON;0;EUTF-8;1;1;1;%2Fhome%2Fhead%2FDesktop%2FСерега%20Младший%2FITProjects%2FsportmosCard%2Ffrontend%2Fappsettings.Development.json;0;4
-FILE_NAME_1=1337;Python;0;EUTF-8;1;1;1;%2Fhome%2Fhead%2FDesktop%2FСерега%20Младший%2FITProjects%2FsportmosCard%2Fbackend%2Fapp.py;0;4
-FILE_NAME_2=0;JSON;0;EUTF-8;1;1;1;%2Fhome%2Fhead%2FDesktop%2FСерега%20Младший%2FITProjects%2FsportmosCard%2Ffrontend%2Fappsettings.json;0;4
+current_page=2
+FILE_NAME_0=1306;None;0;EUTF-8;1;1;1;%2Fhome%2Fhead%2FDesktop%2FСерега%20Младший%2FITProjects%2FsportmosCard%2Ffrontend%2FPages%2FIndex.cshtml;0;4
+FILE_NAME_1=2869;CSS;0;EUTF-8;1;1;1;%2Fhome%2Fhead%2FDesktop%2FСерега%20Младший%2FITProjects%2FsportmosCard%2Ffrontend%2Fwwwroot%2Fcss%2Fsite.css;0;4
+FILE_NAME_2=1865;Python;0;EUTF-8;1;1;1;%2Fhome%2Fhead%2FDesktop%2FСерега%20Младший%2FITProjects%2FsportmosCard%2Fbackend%2Fapp.py;0;4
 
 [VTE]
-last_dir=/home/head/Desktop/Серега Младший/ITProjects/sportmosCard
+last_dir=/home/head/Desktop/Серега Младший/ITProjects/sportmosCard/backend
 
 [prjorg]
 source_patterns=*.c;*.C;*.cpp;*.cxx;*.c++;*.cc;*.m;

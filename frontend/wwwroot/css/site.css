@@ -2,7 +2,7 @@
 for #faq on configuring this project to bundle and minify static web assets. */
 @font-face {
 	font-family: 'Direct Mos';
-	src: url('https://www.artlebedev.ru/type/direct-mos/ALS-Direct-mos-Regular.otf');
+	src: url('ALS-Direct-mos-Regular.otf');
 }
 
 a.navbar-brand {
@@ -86,82 +86,62 @@ h1{
 	font-size: 200%;
 }
 
-#sportDashboard{
-	padding-top: 2%;
-	padding-bottom: 2%;
+.current-coordinate{
+  width: 100%;
+  padding-top: 2%;
+  padding-bottom: 2%;
 }
-#sportDashboard > div{
-	padding: 4%;
-	margin-top: 1%;
-}
-#sportDashboard > div ul, #sportDashboard > div ol{
-	margin-left: -5%;
-	margin-top: 3%;
-}
-#sportDashboard > div ol li{
-	margin-top: 1%;
-	color: gray;
-	font-size: 120%;
-}
-#sportDashboard > div ol li:nth-last-child(2){
-	font-size: 140%;
-}
-#sportDashboard > div ol li:nth-last-child(3){
-	color: #b1560f;
-	font-size: 160%;
-}
-#sportDashboard > div ol li:nth-last-child(4){
-	color: #c0c0c0;
-	font-size: 180%;
-}
-#sportDashboard > div ol li:nth-last-child(5){
-	color: gold;
-	font-size: 200%;
-}
-#sportDashboard > div:nth-child(1) ul{
-	list-style-type: none;
-}
-#sportDashboard > div:nth-child(1) ul li{
-	display: inline-table;
-	margin-left: 9%;
-	width: 20%;
-}
-#sportDashboard > div:nth-child(1) ul li *{
-	display: block;
-	margin-top: 2%;
-	color: #0058ff;
-	font-size: 100%;
+.current-coordinate > header, .current-coordinate > main, .current-coordinate > footer{
+  margin-left: 2%;
+  margin-top: 1%;
 }
 
-#sportDashboard > div:nth-child(1) ul li header{
-	font-size: 400%;
+.current-coordinate > header div{
+  padding-bottom: 1%;
+}
+.current-coordinate > header div *{
+  display: block;
+  margin-top: 1%;
+}
+.current-coordinate > header div strong{
+  font-size: 104%;
+}
+.current-coordinate > header div span{
+  font-size: 110%;
+  color: gray;
 }
 
-.arc path {
-    stroke: #fff;
+.current-coordinate > main div{
+  padding-bottom: 1%;
+  padding-right: 3%;
+  display: inline-block;
+}
+.current-coordinate > main div *{
+  display: block;
+  margin-top: 2%;
+}
+.current-coordinate > main div strong{
+  font-size: 108%;
+}
+.current-coordinate > main div span{
+  font-size: 112%;
 }
 
-#faq {
-    border: 1px solid red;
-    border-radius: 4px;
-    padding: .5em .5em 0;
-    font-size: 100%;
-    margin-top: 2%;
+.current-coordinate > footer div{
+  padding-bottom: 1%;
+  padding-right: 2%;
+  display: inline-block;
+}
+.current-coordinate > footer div *{
+  display: block;
+  margin-top: 4%;
+}
+.current-coordinate > footer div strong{
+  font-size: 110%;
+}
+.current-coordinate > footer div span{
+  font-size: 116%;
+  color: gray;
 }
 
-summary {
-    font-weight: bold;
-    margin: -.5em -.5em 0;
-    padding: .5em;
-    font-size: 130%;
-}
-
-#faq[open] {
-    padding: .5em;
-}
-
-#faq[open] summary {
-    border-bottom: 1px solid red;
-    margin-bottom: .5em;
-    color: red;
-}
+.current-coordinate > * div strong{ color: red; }
