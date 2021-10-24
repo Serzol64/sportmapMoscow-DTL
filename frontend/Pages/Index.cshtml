@@ -15,11 +15,11 @@ var map = new mapboxgl.Map({
 map.once("load", () => {
 	//Здесь выполняются необходимые действия с картой
 
-<<<<<<< HEAD
 	map.addSource('objects',{
 		type: 'geojson',
-		data: 'http://service.dtl-wcc2021.tk/'
+		data: 'http://127.0.0.1:8001/'
 	});
+
 
 
 	map.addLayer({
@@ -28,8 +28,7 @@ map.once("load", () => {
         'source': "objects",
         'layout': {}
 	});
-=======
 
->>>>>>> Service Start
+
 });
 </script>

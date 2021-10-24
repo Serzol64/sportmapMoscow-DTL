@@ -1,18 +1,18 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
-import pandas as pd
+from openpyxl import load_workbook
 import json
-import torch
 import geojson
-from geojson import Feature, FeatureCollection, Point
+import uuid
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 
 def datasetConnect(sheet):
-	if sheet == 'objects': return pd.read_excel('data/db.xlsx', sheet_name='Объекты отдельно')
-	elif sheet == 'access': return pd.read_excel('data/db.xlsx', sheet_name='Обозначения доступности')
-	else: return pd.read_excel('data/db.xlsx', sheet_name='Со спортзонами и видами спорта')
+
+	if sheet == 'objects': return load_workbook('data/db.xlsx').get_sheet_by_name('Объекты отдельно')
+	elif sheet == 'access': return load_workbook('data/db.xlsx').get_sheet_by_name('Обозначения доступности')
+	else: return load_workbook('data/db.xlsx').get_sheet_by_name('Со спортзонами и видами спорта')
 
 app = FastAPI()
 
@@ -31,14 +31,29 @@ app.add_middleware(
 def welcome():
 	#Основной сервис для карты
 
-	objectList = datasetConnect('objects')
+	objectsDB = datasetConnect('objects')
+	lat = []
+	longitude = []
+	geoData = []
 
-	features = objectList.apply( lambda row: Feature(geometry=Point((float(row['Долгота (Longitude)']), float(row['Широта (Latitude)'])))), axis=1).tolist()
-	properties = objectList.drop(['Широта (Latitude)', 'Долгота (Longitude)'], axis=1).to_dict()
-	properties = objectList.drop(['Широта (Latitude)', 'Долгота (Longitude)'], axis=1).to_dict()
+	for index, row in enumerate(objectsDB.rows):
+		if index == 'I': longitude = list(row[index].row)
+	for index, row in enumerate(objectsDB.rows):
+		if index == 'H': lat = list(row[index].row)
 
-	feature_collection = FeatureCollection(features=features, properties=properties)
+	for i in range(len(lat)): geoData.append((longitude[i], lat[i]))
 
-	return feature_collection
+	response = geojson.MultiPoint(geoData)
+
+	return response
+
+
+
+
+
+
+
+
+
 
 
