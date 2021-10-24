@@ -27,12 +27,11 @@ long_line_behaviour=1
 long_line_column=72
 
 [files]
-current_page=4
-FILE_NAME_0=135;Python;0;EUTF-8;1;1;1;%2Fhome%2Fhead%2FDesktop%2FСерега%20Младший%2FITProjects%2FsportmosCard%2Fbackend%2Fservice%2Fapp%2Fmain.py;0;4
-FILE_NAME_1=0;Python;0;EUTF-8;1;1;1;%2Fhome%2Fhead%2FDesktop%2FСерега%20Младший%2FITProjects%2FsportmosCard%2Fbackend%2Fservice%2Fapp%2F__init__.py;0;4
-FILE_NAME_2=78;None;0;EUTF-8;1;1;1;%2Fhome%2Fhead%2FDesktop%2FСерега%20Младший%2FITProjects%2FsportmosCard%2Fbackend%2FpyCompose.txt;0;4
-FILE_NAME_3=236;None;0;EUTF-8;1;1;1;%2Fhome%2Fhead%2FDesktop%2FСерега%20Младший%2FITProjects%2FsportmosCard%2Fbackend%2FDockerfile;0;4
-FILE_NAME_4=540;YAML;0;EUTF-8;1;1;1;%2Fhome%2Fhead%2FDesktop%2FСерега%20Младший%2FITProjects%2FsportmosCard%2Fdocker-compose.yml;0;4
+current_page=2
+FILE_NAME_0=0;HTML;0;EUTF-8;1;1;1;%2Fhome%2Fhead%2FDesktop%2FСерега%20Младший%2FITProjects%2FsportmosCard%2Ffrontend%2FPages%2FShared%2F_Layout.cshtml;0;4
+FILE_NAME_1=623;None;0;EUTF-8;1;1;1;%2Fhome%2Fhead%2FDesktop%2FСерега%20Младший%2FITProjects%2FsportmosCard%2Ffrontend%2FPages%2FIndex.cshtml;0;4
+FILE_NAME_2=222;JSON;0;EUTF-8;1;1;1;%2Fhome%2Fhead%2FDesktop%2FСерега%20Младший%2FITProjects%2FsportmosCard%2Ffrontend%2Fappsettings.json;0;4
+FILE_NAME_3=1110;Python;0;EUTF-8;1;1;1;%2Fhome%2Fhead%2FDesktop%2FСерега%20Младший%2FITProjects%2FsportmosCard%2Fbackend%2Fapp.py;0;4
 
 [VTE]
 last_dir=/home/head/Desktop
